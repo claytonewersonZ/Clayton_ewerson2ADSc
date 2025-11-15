@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Streaming</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="dashboard-page">
+    <header class="navbar">
+        <div class="logo">Streaming App</div>
+        <nav class="nav-links">
+            <a href="/home"><i class="icon">🏠</i> Home</a>
+            <a href="#"><i class="icon">🔍</i> Busca</a>
+        </nav>
+        <div class="user-info">
+            <span><%= user.name %></span>
+            <img src="<%= user.avatar || '/placeholder-avatar.png' %>" alt="Avatar" class="avatar">
+            <a href="/logout" class="logout-link">Sair</a>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="hero-section">
+            <img src="https://via.placeholder.com/1280x600/556B2F/FFFFFF?text=The+last+of+us" alt="The Last of Us" class="hero-image">
+            <div class="hero-overlay">
+                <h1>The last of us</h1>
+            </div>
+        </div>
+
+        <section class="series-row">
+            <h2>Séries populares</h2>
+            <div class="carousel">
+                <div class="card"><img src="https://via.placeholder.com/200x300/F08080?text=Friends" alt="Friends"></div>
+                <div class="card"><img src="https://via.placeholder.com/200x300/4682B4?text=Supernatural" alt="Supernatural"></div>
+                <div class="card"><img src="https://via.placeholder.com/200x300/DAA520?text=The+Office" alt="The Office"></div>
+                <div class="card"><img src="https://via.placeholder.com/200x300/5F9EA0?text=Série+4" alt="Série 4"></div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>

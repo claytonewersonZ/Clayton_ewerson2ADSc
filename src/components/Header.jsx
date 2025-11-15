@@ -1,100 +1,77 @@
+// components/Header.jsx
 "use client";
 
 import styled from "styled-components";
 import Link from "next/link";
-import { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import LoginModal from "./LoginModal";
+// Importar ícones se estiver usando react-icons
+import { FaHome, FaSearch, FaUserCircle } from "react-icons/fa";
 
 export default function Header() {
-  const [showLogin, setShowLogin] = useState(false);
+  // Simula o usuário logado para o visual
+  const userName = "João"; 
 
   return (
-    <>
-      <HeaderContainer>
-        <HeaderContent>
-          <Logo href="/">Japón animes</Logo>
-
-          <Nav>
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/animes">Animes</NavLink>
-            <NavLink href="/animes/novo">sign up</NavLink>
-
-            <LoginButton onClick={() => setShowLogin(true)}>
-              <FaUserCircle size={26} />
-            </LoginButton>
-          </Nav>
-        </HeaderContent>
-      </HeaderContainer>
-
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
-    </>
+    <HeaderContainer>
+      <NavLinks>
+        <NavLink href="/home">
+          <FaHome /> Home
+        </NavLink>
+        <NavLink href="/busca">
+          <FaSearch /> Busca
+        </NavLink>
+      </NavLinks>
+      <UserInfo>
+        <span>{userName}</span>
+        {/* Placeholder de avatar */}
+        <Avatar />
+      </UserInfo>
+    </HeaderContainer>
   );
 }
 
-
-
 // 💅 Estilos do Header
 const HeaderContainer = styled.header`
-  background-color: #1e293b;
-  color: white;
-  padding: 1rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-`;
-
-const HeaderContent = styled.div`
+  background-color: #4CAF50; /* Cor verde da barra de navegação */
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  color: white;
 `;
 
-const Logo = styled(Link)`
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #10b981;
-  text-decoration: none;
-
-  &:hover {
-    opacity: 0.9;
-  }
-`;
-
-const Nav = styled.nav`
+const NavLinks = styled.nav`
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap; /* evita que o conteúdo estoure em telas pequenas */
+  gap: 25px;
 `;
 
 const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
+  font-size: 16px;
   font-weight: 500;
-  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 
   &:hover {
-    color: #10b981;
+    text-decoration: underline;
   }
 `;
 
-const LoginButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition: color 0.2s ease;
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+`;
 
-  &:hover {
-    color: #10b981;
-  }
+const Avatar = styled(FaUserCircle)`
+  font-size: 30px;
+  color: white;
 `;
