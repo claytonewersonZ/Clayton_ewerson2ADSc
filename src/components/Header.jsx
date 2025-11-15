@@ -32,6 +32,8 @@ export default function Header() {
   );
 }
 
+
+
 // 💅 Estilos do Header
 const HeaderContainer = styled.header`
   background-color: #1e293b;
